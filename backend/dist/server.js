@@ -13,13 +13,13 @@ const user_1 = __importDefault(require("./routes/user"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT || 5000;
-app.use((0, cors_1.default)({
-    origin: 'http://localhost:3000', // Allow requests from this origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
-}));
-// Middleware
-// app.use(cors({ origin: 'https://qdra-main.vercel.app' })); // Use the correct CORS configuration
+// app.use(cors({
+//   origin: 'http://localhost:3000', // Allow requests from this origin
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+//   allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
+// }));
+// // Middleware
+app.use((0, cors_1.default)({ origin: 'https://task-2-nu-nine.vercel.app/' })); // Use the correct CORS configuration
 app.use(body_parser_1.default.json());
 // Database connection
 mongoose_1.default.connect(process.env.MONGODB_URI, {})

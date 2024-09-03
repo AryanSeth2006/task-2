@@ -14,13 +14,13 @@ dotenv.config();
 
 const app: Application = express();
 const port = process.env.PORT || 5000;
-app.use(cors({
-  origin: 'http://localhost:3000', // Allow requests from this origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
-}));
-// Middleware
-// app.use(cors({ origin: 'https://qdra-main.vercel.app' })); // Use the correct CORS configuration
+// app.use(cors({
+//   origin: 'http://localhost:3000', // Allow requests from this origin
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+//   allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
+// }));
+// // Middleware
+app.use(cors({ origin: 'https://task-2-nu-nine.vercel.app/' })); // Use the correct CORS configuration
 app.use(bodyParser.json());
 
 // Database connection
