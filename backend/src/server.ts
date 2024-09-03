@@ -20,7 +20,12 @@ const port = process.env.PORT || 5000;
 //   allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
 // }));
 // // Middleware
-app.use(cors({ origin: 'https://task-2-nu-nine.vercel.app/' })); // Use the correct CORS configuration
+app.use(cors({
+  origin: 'https://task-2-nu-nine.vercel.app', // Ensure no trailing slash
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  credentials: true // If you are using cookies for authentication
+}));
 app.use(bodyParser.json());
 
 // Database connection

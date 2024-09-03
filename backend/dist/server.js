@@ -19,7 +19,12 @@ const port = process.env.PORT || 5000;
 //   allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
 // }));
 // // Middleware
-app.use((0, cors_1.default)({ origin: 'https://task-2-nu-nine.vercel.app/' })); // Use the correct CORS configuration
+app.use((0, cors_1.default)({
+    origin: 'https://task-2-nu-nine.vercel.app', // Ensure no trailing slash
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    credentials: true // If you are using cookies for authentication
+}));
 app.use(body_parser_1.default.json());
 // Database connection
 mongoose_1.default.connect(process.env.MONGODB_URI, {})
